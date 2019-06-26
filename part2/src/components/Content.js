@@ -1,14 +1,15 @@
 import React from 'react';
 import Part from './Part';
 
-const Content = (props) => {
-    return (
-      <div>
-        <Part name={props.parts[0].name} exercises={props.parts[0].exercises}/>
-        <Part name={props.parts[1].name} exercises={props.parts[1].exercises}/>
-        <Part name={props.parts[2].name} exercises={props.parts[2].exercises}/>
-      </div>
-    );
+const Content = ({ courses }) => {
+    return courses.map(course => (
+        <div key={course.id}>
+            <h2>{course.name}</h2>
+            <div>
+                <Part parts={course.parts} />
+            </div>
+            <div><b>Total exercises: {course.parts.reduce((a, b) =>{return a + b.exercises},0)}</b></div>
+        </div>
+    ));
 }
-
 export default Content;

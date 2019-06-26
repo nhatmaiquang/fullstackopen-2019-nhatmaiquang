@@ -1,10 +1,10 @@
-import React from 'react';
+// import React from 'react';
 
-const Header = (props) => {
-    return (
-      <h2>Course: {props.course}</h2>
-    );
-}
+// const Header = ({courses}) => {
+//     return courses.map(course => (
+//       <h2 key={course.id}>Course: {course.name}</h2>
+//     ));
+// }
 
-export default Header;
+// export default Header;
 
