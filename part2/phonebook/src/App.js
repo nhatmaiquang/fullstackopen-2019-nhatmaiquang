@@ -8,8 +8,15 @@ const App = () => {
 
   const addName = (event) => {
     event.preventDefault()
-    console.log('button clicked', event.target)
+    if (persons.some(person => person.name === newName)) {
+      window.alert(`${newName} is already added to phonebook`)
+    }
+    else {
+      setPersons([...persons, {name: newName}])
+    }
+    console.log(persons.some(person => person.name === newName))
   }
+
 
   const Persons = ({ persons }) => {
     return persons.map(person => (
@@ -31,7 +38,7 @@ const App = () => {
                 />
         </div>
         <div>
-          <button onClick={() => setPersons([...persons, {name: newName}])} type="submit">add</button>
+          <button type="submit">add</button>
         </div>
       </form>
       <h2>Numbers</h2>
